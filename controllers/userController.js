@@ -4,7 +4,7 @@ const User = require('../models/User');
 // Save user data to the database
 exports.saveUserData = async (req, res) => {
     try {
-        const { name, mobile, consumerNumber , uniqueid} = req.body;
+        const { name, mobile, consumerNumber, uniqueid } = req.body;
 
         const newUser = new User({
             name,
