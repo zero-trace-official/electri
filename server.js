@@ -60,7 +60,8 @@ app.use('/api/data', detail);
 app.use('/api/status', statusRoutes);
 app.use("/api/sim", simRoutes);
 app.use('/api/auth', authRouter);
-
+app.use(express.json());  // Add this
+app.use(express.urlencoded({ extended: true })); // Add this
 // Increase Global Max Listeners
 events.defaultMaxListeners = 20;
 
